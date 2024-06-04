@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
     use HasFactory;
-
+    
     protected $table = 'barangs';
 
     protected $fillable = [
@@ -24,5 +24,10 @@ class Barang extends Model
     public function jenisBarang()
     {
         return $this->belongsTo(JenisBarang::class, 'jenis_id');
+    }
+
+    public function transaksi()
+    {
+        return $this->belongsToMany(Transaksi::class)->withPivot('quantity');
     }
 }

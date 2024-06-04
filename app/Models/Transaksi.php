@@ -13,7 +13,14 @@ class Transaksi extends Model
         'tgl_transaksi',
         'diskon',
         'total_bayar',
+        'barang_id',
+        'quantity',
     ];
 
     protected $dates = ['tgl_transaksi'];
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class, 'barang_id');
+    }
 }

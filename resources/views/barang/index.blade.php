@@ -6,7 +6,7 @@
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">{{ $title }}</h6>
-                    <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#addNewModal">
+                    <button type="button" class="btn text-light" style="background-color: #8E7AB5" data-toggle="modal" data-target="#addNewModal">
                         Add New
                     </button>
                 </div>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn text-light" style="background-color: #8E7AB5">Save changes</button>
                     </div>
                 </form>
             </div>

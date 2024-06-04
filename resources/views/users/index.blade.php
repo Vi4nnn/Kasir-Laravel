@@ -6,7 +6,7 @@
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">{{ $title }}</h6>
-                    <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#addNewModal">
+                    <button type="button" class="btn text-light" style="background-color: #8E7AB5" data-toggle="modal" data-target="#addNewModal">
                         Add New
                     </button>
                 </div>
@@ -16,7 +16,10 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>Email</th>
                                 <th>Role</th>
+                                <th>Alamat</th>
+                                <th>Nomor Telepon</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -28,7 +31,10 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $res->name }}</td>
+                                    <td>{{ $res->email }}</td>
                                     <td>{{ $res->role }}</td>
+                                    <td>{{ $res->alamat }}</td>
+                                    <td>{{ $res->nomor_telepon }}</td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#editModal{{ $res->id }}">
@@ -84,6 +90,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat" autocomplete="off" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="nomor_telepon" class="col-sm-3 col-form-label">Nomor Telepon</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="nomor_telepon" id="nomor_telepon" placeholder="Masukkan nomor telepon" autocomplete="off" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="role" class="col-sm-3 col-form-label">Role</label>
                             <div class="col-sm-9">
                                 <select name="role" id="role" class="form-control" required>
@@ -96,7 +114,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn text-light" style="background-color: #8E7AB5">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -132,6 +150,18 @@
                                     <input type="text" class="form-control" name="email" id="email"
                                         placeholder="Masukkan email" value="{{ $res->email }}" autocomplete="off"
                                         required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat" value="{{ $res->alamat }}" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="nomor_telepon" class="col-sm-3 col-form-label">Nomor Telepon</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="nomor_telepon" id="nomor_telepon" placeholder="Masukkan nomor telepon" value="{{ $res->nomor_telepon }}" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="form-group row">

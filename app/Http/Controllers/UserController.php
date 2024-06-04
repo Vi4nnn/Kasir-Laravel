@@ -25,6 +25,8 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
             'role' => 'required|in:admin,kasir',
+            'alamat' => 'required|string|max:255',
+            'nomor_telepon' => 'required|string|max:15',
         ]);
 
         // Buat pengguna baru
@@ -33,6 +35,8 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->role = $request->input('role');
+        $user->alamat = $request->input('alamat'); // Tambahkan alamat
+        $user->nomor_telepon = $request->input('nomor_telepon'); // Tambahkan nomor telepon
         $user->save();
 
         return redirect()->route('users')->with('status', 'success')->with('message', 'Data pengguna berhasil ditambahkan');
@@ -42,10 +46,12 @@ class UserController extends Controller
     {
         // Validasi data yang dikirim oleh form
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $id,
-            'role' => 'required|in:admin,kasir',
-        ]);
+        'nama' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,' . $id,
+        'role' => 'required|in:admin,kasir',
+        'alamat' => 'required|string|max:255', // Validasi alamat
+        'nomor_telepon' => 'required|string|max:20', // Validasi nomor telepon
+         ]); 
 
         // Temukan pengguna yang akan diperbarui berdasarkan ID
         $user = User::find($id);
@@ -58,6 +64,9 @@ class UserController extends Controller
         $user->name = $request->input('nama');
         $user->email = $request->input('email');
         $user->role = $request->input('role');
+        $user->alamat = $request->input('alamat'); // Perbarui alamat
+        $user->nomor_telepon = $request->input('nomor_telepon'); // Perbarui nomor telepon
+
 
         $user->save();
 
